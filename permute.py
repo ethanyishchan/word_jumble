@@ -1,11 +1,6 @@
-#pyenchant import
-#instructions to download: pip install pyenchant
 import enchant
 
 def permute (s, memo = set(), permute_step = 0):
-	'''
-	this function permutes a word recursively
-	'''
 	def permute_help(s, memo, permute_step):
 		if s in memo or s == " ":
 			return
@@ -26,11 +21,6 @@ def permute (s, memo = set(), permute_step = 0):
 	return memo
 
 def subset (s, memo = set()):
-	'''
-	this function uses bit manipulation to find all the possible subsets of a word a.k.a. powerset
-	2^n number of subsets, each one can be represented by a binary representation, 
-	where the 1's and 0's correspond to whether it belongs in the set or not.
-	'''
 	no_of_subsets = 2 ** len(s)
 	for i in range (0, no_of_subsets):
 		formatting_string = "{0:0" + str(len(s)) + "b}"
@@ -46,9 +36,6 @@ def subset (s, memo = set()):
 	return memo
 
 def jumble (s):
-	'''
-	finds the correct english subwords given a word s
-	'''
 	subsets = subset(s)
 	print subsets
 	output_set = set()
@@ -58,13 +45,3 @@ def jumble (s):
 
 output = jumble("hippo")
 print output
-
-#high level thinking
-#find all the subsets of a word
-#--> O(2^N)
-#for each word in the subset
-	#permute it, and check if it is a valid english word
-	#O(N!)
-#output all of them
-
-#Final runtime O((2^N) * N!)
