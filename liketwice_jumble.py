@@ -1,3 +1,14 @@
+#high level thinking
+#find all the subsets of a word
+#--> O(2^N)
+#for each word in the subset
+	#permute it, and check if it is a valid english word
+	#O(N!)
+#output all of them
+
+#Final runtime O((2^N) * N!)
+
+
 #pyenchant import
 #instructions to download: pip install pyenchant
 import enchant
@@ -59,12 +70,4 @@ def jumble (s):
 output = jumble("hippo")
 print output
 
-#high level thinking
-#find all the subsets of a word
-#--> O(2^N)
-#for each word in the subset
-	#permute it, and check if it is a valid english word
-	#O(N!)
-#output all of them
 
-#Final runtime O((2^N) * N!)
