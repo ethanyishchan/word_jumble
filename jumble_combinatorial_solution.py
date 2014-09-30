@@ -11,7 +11,7 @@
 
 #pyenchant import
 #instructions to download: pip install pyenchant
-import enchant
+import enchant,time
 
 def permute (s, memo = set(), permute_step = 0):
 	'''
@@ -61,13 +61,17 @@ def jumble (s):
 	finds the correct english subwords given a word s
 	'''
 	subsets = subset(s)
-	print subsets
 	output_set = set()
 	for word in subsets:
 		permute (word, output_set, 0)
 	return output_set
 
-output = jumble("hippo")
+#start time clock				
+start = time.clock()
+
+output = jumble("cathy")
 print output
 
+#end time clock
+print time.clock() - start
 
